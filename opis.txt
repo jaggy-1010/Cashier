@@ -1,0 +1,6 @@
+Mój pomysł na aplikację:
+- Program liczy statystyki zakupów.
+- Kasjer wprowadza poszczególne wartości towarów do kasy.
+- Aplikacja  zapisuje ww. wartości do pliku kasy i do pliku kasjera.
+- Program liczy statystykii(count, sum, min, max, avg, ranking kasjerów(dodatkowo) z pliku kasy (ewentualnie dodatkowo z plików kasjerów).
+- Zakładam, że jest maksymalnie trzech kasjerów.
