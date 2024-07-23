@@ -9,12 +9,19 @@ public class Param
     public const string CASHIER_CASH_VALUES = "cashValues.txt";
     public const string GLOBAL_CASH_LOG = "globalCashLog.txt";
     
-    // Trade levels -> Statistics
-    public const double HIGH_LEVEL = 10000.0;
-    public const double UPPER_MIDDLE_LEVEL = 5000.0;
-    public const double MIDDLE_LEVEL = 2000.0;
-    public const double STANDARD_LEVEL = 1000.0;
-    public const double LOW_LEVEL = 200.0;
+    // Global trade levels -> Statistics
+    public const double HIGH_LEVEL = 100000.0;
+    public const double UPPER_MIDDLE_LEVEL = 50000.0;
+    public const double MIDDLE_LEVEL = 20000.0;
+    public const double STANDARD_LEVEL = 10000.0;
+    public const double LOW_LEVEL = 2000.0;
+    
+    // Cashier trade levels -> Statistics
+    public const double CASHIER_HIGH_LEVEL = 10000.0;
+    public const double CASHIER_UPPER_MIDDLE_LEVEL = 5000.0;
+    public const double CASHIER_MIDDLE_LEVEL = 2000.0;
+    public const double CASHIER_STANDARD_LEVEL = 1000.0;
+    public const double CASHIER_LOW_LEVEL = 200.0;
     
     // Trade levels by letters -> Statistics
     public const char TRADE_LEVEL_A = 'A';

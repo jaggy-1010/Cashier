@@ -58,21 +58,43 @@ public class Statistics
             }
         }
     }
-    public char TradeLevelInLetters
+    public char GlobalTradeLevelInLetters
     {
         get
         {
-            switch(this.Average)
+            switch(this.Sum)
             {
-                case var average when average >= Param.HIGH_LEVEL:
+                case var sum when sum >= Param.HIGH_LEVEL:
                     return Param.TRADE_LEVEL_A;
-                case var average when average >= Param.UPPER_MIDDLE_LEVEL:
+                case var sum when sum >= Param.UPPER_MIDDLE_LEVEL:
                     return Param.TRADE_LEVEL_B;
-                case var average when average >= Param.MIDDLE_LEVEL:
+                case var sum when sum>= Param.MIDDLE_LEVEL:
                     return Param.TRADE_LEVEL_C;
-                case var average when average >= Param.STANDARD_LEVEL:
+                case var sum when sum >= Param.STANDARD_LEVEL:
                     return Param.TRADE_LEVEL_D;
-                case var average when average >= Param.LOW_LEVEL:
+                case var sum when sum >= Param.LOW_LEVEL:
+                    return Param.TRADE_LEVEL_E;
+                default:
+                    return Param.TRADE_LEVEL_F;
+            }
+        }
+    }
+    
+    public char CashierTradeLevelInLetters
+    {
+        get
+        {
+            switch(this.Sum)
+            {
+                case var sum when sum >= Param.CASHIER_HIGH_LEVEL:
+                    return Param.TRADE_LEVEL_A;
+                case var sum when sum >= Param.CASHIER_UPPER_MIDDLE_LEVEL:
+                    return Param.TRADE_LEVEL_B;
+                case var sum when sum>= Param.CASHIER_MIDDLE_LEVEL:
+                    return Param.TRADE_LEVEL_C;
+                case var sum when sum >= Param.CASHIER_STANDARD_LEVEL:
+                    return Param.TRADE_LEVEL_D;
+                case var sum when sum >= Param.CASHIER_LOW_LEVEL:
                     return Param.TRADE_LEVEL_E;
                 default:
                     return Param.TRADE_LEVEL_F;

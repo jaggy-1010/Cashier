@@ -8,23 +8,29 @@ Console.WriteLine("* Aby zakończyć naciśnij q ( lub Q ). *");
 Console.WriteLine("***************************************");
 Console.WriteLine();
 Console.Write("Wprowadź nick kasjera: ");
-var inputNick = Console.ReadLine();
-var nickLength = inputNick.Length;
-string trimmedNick = "";
-if (nickLength != 0)
-{
-    char[] charSeparator = new char[] { ' ' };
-    string[] results;
-    results = inputNick.Split(charSeparator, StringSplitOptions.TrimEntries);
-    int nickArrayLength = results.Length;
 
-    for (int i = 0; i < nickArrayLength; i++)
+static string trimmNick()
+{
+    string trimmedNick = "";
+    var inputNick = Console.ReadLine();
+    var nickLength = inputNick.Length;
+    if (nickLength != 0)
     {
-        trimmedNick += results[i];
-        // if (i < nickArrayLength - 1)
-            // trimmedNick += "_";
+        char[] charSeparator = new char[] { ' ' };
+        string[] results;
+        results = inputNick.Split(charSeparator, StringSplitOptions.TrimEntries);
+        int nickArrayLength = results.Length;
+
+        for (int i = 0; i < nickArrayLength; i++)
+        {
+            trimmedNick += results[i];
+        }
     }
+
+    return trimmedNick;
 }
+
+var trimmedNick = trimmNick();
 
 var cashierInFile = new CashierInFile(trimmedNick);
 
@@ -52,10 +58,21 @@ while (true)
     }
 }
 
-// var globalStatistics = cashierInFile.GetStatistics();
-// globalStatistics.Count;
-// globalStatistics.Sum;
-// globalStatistics.Min;
-// globalStatistics.Max;
-// globalStatistics.Average;
-// globalStatistics.TradeLevel;
+var globalStatistics = cashierInFile.GetStatistics();
+Console.WriteLine($"Ilość artykułów:\t\t{globalStatistics.Count}");
+Console.WriteLine($"Suma artykułów:\t\t\t{globalStatistics.Sum:N2}");
+Console.WriteLine($"Najtańszy artykuł:\t\t{globalStatistics.Min:N2}");
+Console.WriteLine($"Najdroższy artykuł:\t\t{globalStatistics.Max:N2}");
+Console.WriteLine($"Średnia wartość artykułu:\t{globalStatistics.Average:N2}");
+Console.WriteLine($"Poziom sprzedaży sklepu:\t{globalStatistics.GlobalTradeLevelInLetters}");
+
+var cashierStatistics = cashierInFile.GetCashierStatistics();
+Console.WriteLine();
+Console.WriteLine($"Ilość artykułów:\t\t{cashierStatistics.Count}");
+Console.WriteLine($"Suma artykułów:\t\t\t{cashierStatistics.Sum:N2}");
+Console.WriteLine($"Najtańszy artykuł:\t\t{cashierStatistics.Min:N2}");
+Console.WriteLine($"Najdroższy artykuł:\t\t{cashierStatistics.Max:N2}");
+Console.WriteLine($"Średnia wartość artykułu:\t{cashierStatistics.Average:N2}");
+Console.WriteLine($"Poziom sprzedaży kasjera:\t{cashierStatistics.CashierTradeLevelInLetters}");
+
+    

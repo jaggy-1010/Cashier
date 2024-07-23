@@ -115,6 +115,48 @@ public class CashierInFile // : CashierBase
         }
     }
 
+    public Statistics GetStatistics()
+    {
+        var statistics = new Statistics();
+        if (File.Exists(Param.GLOBAL_CASH_VALUES))
+        {
+            using (var reader = File.OpenText(Param.GLOBAL_CASH_VALUES))
+            {
+                var line = reader.ReadLine();
+                while (line != null)
+                {
+                    counter++;
+                    var price = double.Parse(line);
+                    statistics.AddPrice(price);
+                    line = reader.ReadLine();
+                }
+            }
+        }
+
+        return statistics;
+    }
+
+    public Statistics GetCashierStatistics()
+    {
+        var statistics = new Statistics();
+        if (File.Exists($"{cashierFileName}"))
+        {
+            using (var reader = File.OpenText($"{cashierFileName}"))
+            {
+                var line = reader.ReadLine();
+                while (line != null)
+                {
+                    counter++;
+                    var price = double.Parse(line);
+                    statistics.AddPrice(price);
+                    line = reader.ReadLine();
+                }
+            }
+        }
+
+        return statistics;
+    }
+    
     public bool HasPrice()
     {
         if (counter != 0)
