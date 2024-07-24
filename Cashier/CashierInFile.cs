@@ -6,7 +6,6 @@ public class CashierInFile  : CashierBase // : ICashier
     
     public CashierInFile(string cashierNick) : base(cashierNick)
     {
-        // this.CashierNick = cashierNick;
         cashierFileName = ($"{cashierNick.ToLower()}_{Param.CASHIER_CASH_VALUES}");
     }
    
@@ -28,7 +27,7 @@ public class CashierInFile  : CashierBase // : ICashier
             }
             else
             {
-                throw new Exception("Acceptable values greater then 0.00");
+                throw new Exception("Wartość wprowadzana musi być większa od 0.00");
             }
         }
     }

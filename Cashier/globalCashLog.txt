@@ -6,3 +6,13 @@
 24.07.2024 17:21:32	-	Lolek	-	1,20	-	lolek_cashValues.txt	-	globalCashValues.txt
 24.07.2024 17:21:35	-	Lolek	-	1,20	-	lolek_cashValues.txt	-	globalCashValues.txt
 24.07.2024 17:21:42	-	Lolek	-	2,50	-	lolek_cashValues.txt	-	globalCashValues.txt
+24.07.2024 17:46:43	-	Bolek	-	2,50	-	bolek_cashValues.txt	-	globalCashValues.txt
+24.07.2024 17:46:44	-	Bolek	-	1,50	-	bolek_cashValues.txt	-	globalCashValues.txt
+24.07.2024 17:46:48	-	Bolek	-	1,50	-	bolek_cashValues.txt	-	globalCashValues.txt
+24.07.2024 17:46:55	-	Bolek	-	1,30	-	bolek_cashValues.txt	-	globalCashValues.txt
+24.07.2024 17:46:58	-	Bolek	-	1,00	-	bolek_cashValues.txt	-	globalCashValues.txt
+24.07.2024 17:47:04	-	Bolek	-	1,20	-	bolek_cashValues.txt	-	globalCashValues.txt
+24.07.2024 17:47:07	-	Bolek	-	23,44	-	bolek_cashValues.txt	-	globalCashValues.txt
+24.07.2024 17:47:12	-	Bolek	-	18,93	-	bolek_cashValues.txt	-	globalCashValues.txt
+24.07.2024 17:47:17	-	Bolek	-	22,97	-	bolek_cashValues.txt	-	globalCashValues.txt
+24.07.2024 17:47:20	-	Bolek	-	99,76	-	bolek_cashValues.txt	-	globalCashValues.txt
