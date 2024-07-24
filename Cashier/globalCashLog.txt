@@ -1,0 +1,8 @@
+24.07.2024 17:21:14	-	Lolek	-	23,44	-	lolek_cashValues.txt	-	globalCashValues.txt
+24.07.2024 17:21:17	-	Lolek	-	18,23	-	lolek_cashValues.txt	-	globalCashValues.txt
+24.07.2024 17:21:22	-	Lolek	-	88,98	-	lolek_cashValues.txt	-	globalCashValues.txt
+24.07.2024 17:21:24	-	Lolek	-	1,30	-	lolek_cashValues.txt	-	globalCashValues.txt
+24.07.2024 17:21:29	-	Lolek	-	1,50	-	lolek_cashValues.txt	-	globalCashValues.txt
+24.07.2024 17:21:32	-	Lolek	-	1,20	-	lolek_cashValues.txt	-	globalCashValues.txt
+24.07.2024 17:21:35	-	Lolek	-	1,20	-	lolek_cashValues.txt	-	globalCashValues.txt
+24.07.2024 17:21:42	-	Lolek	-	2,50	-	lolek_cashValues.txt	-	globalCashValues.txt
