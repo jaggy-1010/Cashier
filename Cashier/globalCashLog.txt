@@ -16,3 +16,9 @@
 24.07.2024 17:47:12	-	Bolek	-	18,93	-	bolek_cashValues.txt	-	globalCashValues.txt
 24.07.2024 17:47:17	-	Bolek	-	22,97	-	bolek_cashValues.txt	-	globalCashValues.txt
 24.07.2024 17:47:20	-	Bolek	-	99,76	-	bolek_cashValues.txt	-	globalCashValues.txt
+24.07.2024 21:03:57	-	Tosia	-	23,44	-	tosia_cashValues.txt	-	globalCashValues.txt
+24.07.2024 21:04:03	-	Tosia	-	45,23	-	tosia_cashValues.txt	-	globalCashValues.txt
+24.07.2024 21:04:05	-	Tosia	-	1,30	-	tosia_cashValues.txt	-	globalCashValues.txt
+24.07.2024 21:04:08	-	Tosia	-	2,50	-	tosia_cashValues.txt	-	globalCashValues.txt
+24.07.2024 21:04:13	-	Tosia	-	45,78	-	tosia_cashValues.txt	-	globalCashValues.txt
+24.07.2024 21:04:26	-	Tosia	-	2,50	-	tosia_cashValues.txt	-	globalCashValues.txt

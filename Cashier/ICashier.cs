@@ -6,7 +6,7 @@ public interface ICashier
     string CashierNick { get; }
 
     Statistics GetStatistics();
-    Statistics GetCashierStatistics();
+    // Statistics GetCashierStatistics();
     void AddPrice(double price);
     void AddPrice(string price);
     void AddPrice(char price);

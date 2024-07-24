@@ -130,7 +130,7 @@ public class CashierInFile  : CashierBase // : ICashier
         return statistics;
     }
 
-    public override Statistics GetCashierStatistics()
+    public Statistics GetCashierStatistics()
     {
         var statistics = new Statistics();
         if (File.Exists($"{cashierFileName}"))
