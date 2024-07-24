@@ -98,7 +98,13 @@ public class CashierInMemory : CashierBase
 
     public override Statistics GetStatistics()
     {
-        throw new NotImplementedException();
+        var statistics = new Statistics();
+
+        foreach (var price in prices)
+        {
+            statistics.AddPrice(price);
+        }
+        return statistics;
     }
 
     public Statistics GetCashierStatistics()

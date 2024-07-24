@@ -12,7 +12,8 @@ var trimmedNick = trimmNick();
 
 var cashierInFile = new CashierInFile(trimmedNick);
 Console.WriteLine("---");
-AddItemsValues(cashierInFile);
+
+AddItemsValuesToFile(cashierInFile);
 
 static string trimmNick()
 {
@@ -36,7 +37,7 @@ static string trimmNick()
     return trimmedNick;
 }
 
-static void AddItemsValues(CashierInFile cashierInFile)
+static void AddItemsValuesToFile(CashierInFile cashierInFile)
 {
     
     while (true)
@@ -107,3 +108,68 @@ else
 {
     Console.WriteLine($"Poziom sprzedaży kasjera:\t{cashierStatistics.CashierTradeLevelInLetters}");
 }
+
+Console.WriteLine();
+Console.WriteLine("--------------------------------------------------------------------------");
+
+Console.WriteLine("Podaj nick kasjera:");
+string input = Console.ReadLine();
+
+var cashierInMemory = new CashierInMemory(input);
+Console.WriteLine("---");
+
+AddItemsValuesToMemory(cashierInMemory);
+
+static void AddItemsValuesToMemory(CashierInMemory cashierInMemory)
+{
+    
+    while (true)
+    {
+        Console.Write("Wprowadź kolejną pozycję: ");
+        var input = Console.ReadLine();
+
+        if (input == "q" || input == "Q")
+        {
+            if (!cashierInMemory.HasPrice())
+            {
+                Console.WriteLine("\nNie dodano żadnej pozycji!");
+            }
+
+            break;
+        }
+
+        try
+        {
+            cashierInMemory.AddPrice(input);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Exception catched: {e.Message}");
+        }
+    }
+}
+
+
+var statistics = cashierInMemory.GetStatistics();
+
+Console.WriteLine("---");
+Console.ForegroundColor = ConsoleColor.Yellow;
+Console.WriteLine($"Statystyki kasjera : {input}");
+Console.ResetColor();
+Console.Write($"Ilość artykułów:\t\t{statistics.Count}\t\t\t");
+Console.WriteLine($"Suma artykułów:\t\t\t{statistics.Sum:N2}");
+Console.Write($"Najtańszy artykuł:\t\t{statistics.Min:N2}\t\t\t");
+Console.WriteLine($"Najdroższy artykuł:\t\t{statistics.Max:N2}");
+Console.Write($"Średnia wartość artykułu:\t{statistics.Average:N2}\t\t\t");
+if (globalStatistics.GlobalTradeLevelInLetters == 'F')
+{
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.WriteLine($"Poziom sprzedaży kasjera :\t{statistics.GlobalTradeLevelInLetters}");
+    Console.ResetColor();
+}
+else
+{
+    Console.WriteLine($"Poziom sprzedaży sklepu:\t{globalStatistics.GlobalTradeLevelInLetters}");
+}
+
+
