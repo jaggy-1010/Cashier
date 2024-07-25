@@ -1,6 +1,6 @@
 namespace Cashier;
 
-public class Param
+public static class Param
 {
     // CONFIG:
     
@@ -32,12 +32,12 @@ public class Param
     public const char TRADE_LEVEL_F = 'F';
     
     // Constant discount prices -> CashierInFile, CashierInMemory
-    public const double SUGAR = 1.20;
-    public const double BREAD = 1.50;
-    public const double MILK = 1.50;
-    public const double BUTTER = 2.50;
-    public const double RICE = 1.00;
-    public const double SEMOLINA = 1.20;
-    public const double FLOUR = 1.30;
-    public const double EGGS = 4.00;
+    public const double SUGAR = 1.20; // Cukier -> C, c
+    public const double BREAD = 1.50; // Pieczywo -> P, p
+    public const double MILK = 1.50; // Mleko -> M, m
+    public const double BUTTER = 2.50; // Tłuszcz -> T, t
+    public const double RICE = 1.00; // Ryż -> R, r
+    public const double SEMOLINA = 1.20; // Kaszka manna -> K, k
+    public const double FLOUR = 1.30; // Wypieki(mąka) -> W, w
+    public const double EGGS = 4.00; // Jajka -> J, j
 }

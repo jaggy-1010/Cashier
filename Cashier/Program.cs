@@ -1,13 +1,16 @@
 ﻿using Cashier;
 Console.WriteLine();
-Console.WriteLine("* Obsługa *");
-Console.WriteLine("* K A S Y *");
+Console.WriteLine("*************");
+Console.WriteLine("*           *");
+Console.WriteLine("*  Obsługa  *");
+Console.WriteLine("*  K A S Y  *");
+Console.WriteLine("*           *");
+Console.WriteLine("*************");
 Console.WriteLine();
 
 var trimmedNick = trimmNick();
 
 var cashierInFile = new CashierInFile(trimmedNick);
-
 Console.WriteLine("---");
 
 AddItemsValuesToFile(cashierInFile);
@@ -70,7 +73,9 @@ static void AddItemsValuesToFile(CashierInFile cashierInFile)
     }
 }
 
-
+Console.WriteLine();
+Console.WriteLine("---");
+cashierInFile.ShowGlobalInputs();
 var globalStatistics = cashierInFile.GetStatistics();
 Console.WriteLine("---");
 Console.ForegroundColor = ConsoleColor.Yellow;
@@ -91,7 +96,10 @@ else
 {
     Console.WriteLine($"Poziom sprzedaży sklepu:\t{globalStatistics.GlobalTradeLevelInLetters}");
 }
-
+Console.WriteLine();
+Console.WriteLine("---");
+cashierInFile.ShowCashierInputs();
+Console.WriteLine();
 var cashierStatistics = cashierInFile.GetCashierStatistics();
 Console.WriteLine("---");
 Console.ForegroundColor = ConsoleColor.Yellow;
@@ -115,7 +123,7 @@ else
 
 Console.WriteLine();
 Console.WriteLine("--------------------------------------------------------------------------");
-
+/*
 Console.WriteLine("Podaj nick kasjera:");
 string input = Console.ReadLine();
 
@@ -172,7 +180,7 @@ Console.WriteLine($"Suma artykułów:\t\t\t{statistics.Sum:N2}");
 Console.Write($"Najtańszy artykuł:\t\t{statistics.Min:N2}\t\t\t");
 Console.WriteLine($"Najdroższy artykuł:\t\t{statistics.Max:N2}");
 Console.Write($"Średnia wartość artykułu:\t{statistics.Average:N2}\t\t\t");
-if (globalStatistics.GlobalTradeLevelInLetters == 'F')
+if (statistics.CashierTradeLevelInLetters == 'F')
 {
     Console.ForegroundColor = ConsoleColor.Red;
     Console.WriteLine($"Poziom sprzedaży kasjera :\t{statistics.CashierTradeLevelInLetters}");
@@ -182,5 +190,4 @@ else
 {
     Console.WriteLine($"Poziom sprzedaży kasjera:\t{statistics.CashierTradeLevelInLetters}");
 }
-
-
+*/

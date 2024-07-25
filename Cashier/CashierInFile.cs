@@ -1,3 +1,5 @@
+using System.Net.Http.Headers;
+
 namespace Cashier;
 
 public class CashierInFile  : CashierBase // : ICashier 
@@ -154,6 +156,78 @@ public class CashierInFile  : CashierBase // : ICashier
         }
 
         return statistics;
+    }
+
+    public void ShowGlobalInputs()
+    {
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine("WYNIKI WSZYSTKICH KASJERÓW");
+        Console.ResetColor();
+        Console.WriteLine("---");
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine("Wszystkie dotychczas wprowadzone pozycje:");
+        Console.ResetColor();
+        if(File.Exists(Param.GLOBAL_CASH_VALUES))
+        {
+            using(var reader = File.OpenText(Param.GLOBAL_CASH_VALUES))
+            {
+                var line = reader.ReadLine();
+                int counter = 1;
+                while (line != null)
+                {
+                    if (counter % 15 != 0)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.Write(line + "; ");
+                        Console.ResetColor();
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.WriteLine(line+ "; ");
+                        Console.ResetColor();
+                    }
+                    line = reader.ReadLine();
+                    counter++;
+                }
+            }
+        }
+    }
+
+    public void ShowCashierInputs()
+    {
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine($"WYNIKI KASJERA {CashierNick.ToUpper()}");
+        Console.ResetColor();
+        Console.WriteLine("---");
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine($"Dotychczas wprowadzone pozycje przez kasjera :");
+        Console.ResetColor();
+        if(File.Exists(cashierFileName))
+        {
+            using(var reader = File.OpenText(cashierFileName))
+            {
+                var line = reader.ReadLine();
+                int counter = 1;
+                while (line != null)
+                {
+                    if (counter % 15 != 0)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.Write(line + "; ");
+                        Console.ResetColor();
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.WriteLine(line+ "; ");
+                        Console.ResetColor();
+                    }
+                    line = reader.ReadLine();
+                    counter++;
+                }
+            }
+        }
     }
     
     public override bool HasPrice()
