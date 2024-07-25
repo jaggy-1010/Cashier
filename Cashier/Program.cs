@@ -1,16 +1,13 @@
 ﻿using Cashier;
-
-// Console.WriteLine("*dd**************************************");
-Console.WriteLine("* K A S A *");
-// Console.WriteLine("* Wprowadzaj kolejne pozycje zgodnie  *");
-// Console.WriteLine("* z ich wartością.                    *");
-// Console.WriteLine("* Aby zakończyć naciśnij q ( lub Q ). *");
-// Console.WriteLine("***************************************");
+Console.WriteLine();
+Console.WriteLine("* Obsługa *");
+Console.WriteLine("* K A S Y *");
 Console.WriteLine();
 
 var trimmedNick = trimmNick();
 
 var cashierInFile = new CashierInFile(trimmedNick);
+
 Console.WriteLine("---");
 
 AddItemsValuesToFile(cashierInFile);
@@ -39,6 +36,13 @@ static string trimmNick()
 
 static void AddItemsValuesToFile(CashierInFile cashierInFile)
 {
+    cashierInFile.PriceAdded += CashierInFilePriceAdded;
+    void CashierInFilePriceAdded(object sender, EventArgs args)
+    {
+        Console.ForegroundColor = ConsoleColor.Blue;
+        Console.WriteLine($"Wprowadzono nowy artykuł");
+        Console.ResetColor();
+    }
     
     while (true)
     {
@@ -122,12 +126,19 @@ AddItemsValuesToMemory(cashierInMemory);
 
 static void AddItemsValuesToMemory(CashierInMemory cashierInMemory)
 {
+        cashierInMemory.PriceAdded += CashierInMemoryPriceAdded;
+        void CashierInMemoryPriceAdded(object sender, EventArgs args)
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine($"Wprowadzono nowy artykuł.");
+            Console.ResetColor();
+        }
     
     while (true)
     {
+
         Console.Write("Wprowadź kolejną pozycję: ");
         var input = Console.ReadLine();
-
         if (input == "q" || input == "Q")
         {
             if (!cashierInMemory.HasPrice())
@@ -164,12 +175,12 @@ Console.Write($"Średnia wartość artykułu:\t{statistics.Average:N2}\t\t\t");
 if (globalStatistics.GlobalTradeLevelInLetters == 'F')
 {
     Console.ForegroundColor = ConsoleColor.Red;
-    Console.WriteLine($"Poziom sprzedaży kasjera :\t{statistics.GlobalTradeLevelInLetters}");
+    Console.WriteLine($"Poziom sprzedaży kasjera :\t{statistics.CashierTradeLevelInLetters}");
     Console.ResetColor();
 }
 else
 {
-    Console.WriteLine($"Poziom sprzedaży sklepu:\t{globalStatistics.GlobalTradeLevelInLetters}");
+    Console.WriteLine($"Poziom sprzedaży kasjera:\t{statistics.CashierTradeLevelInLetters}");
 }
 
 

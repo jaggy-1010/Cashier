@@ -2,6 +2,7 @@ namespace Cashier;
 
 public class CashierInMemory : CashierBase
 {
+    public override event PriceAddedDelegate PriceAdded;
     private List<double> prices = new List<double>();
 
     public CashierInMemory(string cashierNick) : base(cashierNick)
@@ -13,6 +14,10 @@ public class CashierInMemory : CashierBase
         if (price > 0)
         {
             this.prices.Add(price);
+            if(PriceAdded != null)
+            {
+                PriceAdded(this, new EventArgs());
+            }
         }
         else
         {

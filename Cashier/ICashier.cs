@@ -13,4 +13,5 @@ public interface ICashier
     void AddPrice(int price);
     void AddPrice(float price);
     bool HasPrice();
+    event PriceAddedDelegate PriceAdded;
 }

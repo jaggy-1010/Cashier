@@ -2,6 +2,7 @@ namespace Cashier;
 
 public class CashierInFile  : CashierBase // : ICashier 
 {
+    public override event PriceAddedDelegate PriceAdded;
     private string cashierFileName;
     
     public CashierInFile(string cashierNick) : base(cashierNick)
@@ -23,6 +24,10 @@ public class CashierInFile  : CashierBase // : ICashier
                 cashWriter.WriteLine("{0:0.00}", price);
                 cashierWriter.WriteLine("{0:0.00}",price);
                 logWriter.WriteLine($"{DateTime.Now}\t-\t{CashierNick}\t-\t{price.ToString("0.00")}\t-\t{cashierFileName}\t-\t{Param.GLOBAL_CASH_VALUES}");
+                if(PriceAdded != null)
+                {
+                    PriceAdded(this, new EventArgs());
+                }
                 counter++;
             }
             else

@@ -16,4 +16,6 @@ public abstract class CashierBase : ICashier
     public abstract void AddPrice(int price);
     public abstract void AddPrice(float price);
     public abstract bool HasPrice();
+    public delegate void PriceAddedDelegate(object sender, EventArgs args);
+    public abstract event PriceAddedDelegate PriceAdded;
 }
