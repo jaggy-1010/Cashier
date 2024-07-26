@@ -1,24 +1,19 @@
 namespace Cashier;
 
-public class CashierInFile // : CashierBase 
+public class CashierInFile  : CashierBase // : ICashier 
 {
-    private string cashierNick;
+    public override event PriceAddedDelegate PriceAdded;
     private string cashierFileName;
-
-
-    public string CashierNick { get; private set; }
-
-
-    public CashierInFile(string cashierNick)
+    
+    public CashierInFile(string cashierNick) : base(cashierNick)
     {
-        this.CashierNick = cashierNick;
         cashierFileName = ($"{cashierNick.ToLower()}_{Param.CASHIER_CASH_VALUES}");
     }
-    
+   
 
     private int counter = 0;
 
-    public void AddPrice(double price)
+    public override void AddPrice(double price)
     {
         using (var cashWriter = File.AppendText(Param.GLOBAL_CASH_VALUES))
         using (var cashierWriter = File.AppendText($"{cashierFileName}"))
@@ -29,16 +24,20 @@ public class CashierInFile // : CashierBase
                 cashWriter.WriteLine("{0:0.00}", price);
                 cashierWriter.WriteLine("{0:0.00}",price);
                 logWriter.WriteLine($"{DateTime.Now}\t-\t{CashierNick}\t-\t{price.ToString("0.00")}\t-\t{cashierFileName}\t-\t{Param.GLOBAL_CASH_VALUES}");
+                if(PriceAdded != null)
+                {
+                    PriceAdded(this, new EventArgs());
+                }
                 counter++;
             }
             else
             {
-                throw new Exception("Acceptable values greater then 0.00");
+                throw new Exception("Wartość wprowadzana musi być większa od 0.00");
             }
         }
     }
 
-    public void AddPrice(string price)
+    public override void AddPrice(string price)
     {
         if (price != null)
         {
@@ -62,19 +61,19 @@ public class CashierInFile // : CashierBase
         }
     }
 
-    public void AddPrice(int price)
+    public override void AddPrice(int price)
     {
         double result = price;
         this.AddPrice(result);
     }
     
-    public void AddPrice(float price)
+    public override void AddPrice(float price)
     {
         double result = price;
         this.AddPrice(result);
     }
 
-    public void AddPrice(char price)
+    public override void AddPrice(char price)
     {
         switch (price)
         {
@@ -92,7 +91,7 @@ public class CashierInFile // : CashierBase
                 break;
             case 'T':
             case 't':
-                this.AddPrice(Param.BUTTER);
+                this.AddPrice(Param.BUTTER); 
                 break;
             case 'R':
             case 'r':
@@ -100,7 +99,7 @@ public class CashierInFile // : CashierBase
                 break;
             case 'K':
             case 'k':
-                this.AddPrice(Param.SEMOLINA);
+                this.AddPrice(Param.SEMOLINA); 
                 break;
             case 'W':
             case 'w':
@@ -115,7 +114,7 @@ public class CashierInFile // : CashierBase
         }
     }
 
-    public Statistics GetStatistics()
+    public override Statistics GetStatistics()
     {
         var statistics = new Statistics();
         if (File.Exists(Param.GLOBAL_CASH_VALUES))
@@ -156,8 +155,80 @@ public class CashierInFile // : CashierBase
 
         return statistics;
     }
+
+    public void ShowGlobalInputs()
+    {
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+        Console.WriteLine("W Y N I K I   W S Z Y S T K I C H  K A S J E R Ó W:");
+        Console.ResetColor();
+        Console.WriteLine("---");
+        Console.ForegroundColor = ConsoleColor.DarkYellow;
+        Console.WriteLine("Wszystkie dotychczas wprowadzone pozycje:");
+        Console.ResetColor();
+        if(File.Exists(Param.GLOBAL_CASH_VALUES))
+        {
+            using(var reader = File.OpenText(Param.GLOBAL_CASH_VALUES))
+            {
+                var line = reader.ReadLine();
+                int counter = 1;
+                while (line != null)
+                {
+                    if (counter % 15 != 0)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.Write(line + "; ");
+                        Console.ResetColor();
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.WriteLine(line+ "; ");
+                        Console.ResetColor();
+                    }
+                    line = reader.ReadLine();
+                    counter++;
+                }
+            }
+        }
+    }
+
+    public void ShowCashierInputs()
+    {
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+        Console.WriteLine($"W Y N I K I   K A S J E R A {CashierNick.ToUpper().}:");
+        Console.ResetColor();
+        Console.WriteLine("---");
+        Console.ForegroundColor = ConsoleColor.DarkYellow;
+        Console.WriteLine($"Dotychczas wprowadzone pozycje przez kasjera :");
+        Console.ResetColor();
+        if(File.Exists(cashierFileName))
+        {
+            using(var reader = File.OpenText(cashierFileName))
+            {
+                var line = reader.ReadLine();
+                int counter = 1;
+                while (line != null)
+                {
+                    if (counter % 15 != 0)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.Write(line + "; ");
+                        Console.ResetColor();
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.WriteLine(line+ "; ");
+                        Console.ResetColor();
+                    }
+                    line = reader.ReadLine();
+                    counter++;
+                }
+            }
+        }
+    }
     
-    public bool HasPrice()
+    public override bool HasPrice()
     {
         if (counter != 0)
         {
