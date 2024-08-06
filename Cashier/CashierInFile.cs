@@ -159,11 +159,11 @@ public class CashierInFile  : CashierBase // : ICashier
     public void ShowGlobalInputs()
     {
         Console.ForegroundColor = ConsoleColor.DarkGreen;
-        Console.WriteLine("W Y N I K I   W S Z Y S T K I C H  K A S J E R Ó W:");
+        Console.WriteLine("W S Z Y S C Y  K A S J E R Z Y:");
         Console.ResetColor();
         Console.WriteLine("---");
         Console.ForegroundColor = ConsoleColor.DarkYellow;
-        Console.WriteLine("Wszystkie dotychczas wprowadzone pozycje:");
+        Console.WriteLine("Skasowane artykuły:");
         Console.ResetColor();
         if(File.Exists(Param.GLOBAL_CASH_VALUES))
         {
@@ -195,11 +195,11 @@ public class CashierInFile  : CashierBase // : ICashier
     public void ShowCashierInputs()
     {
         Console.ForegroundColor = ConsoleColor.DarkGreen;
-        Console.WriteLine($"W Y N I K I   K A S J E R A {CashierNick.ToUpper().}:");
+        Console.WriteLine($"K A S J E R K A / K A S J E R << {CashierNick} >>:");
         Console.ResetColor();
         Console.WriteLine("---");
         Console.ForegroundColor = ConsoleColor.DarkYellow;
-        Console.WriteLine($"Dotychczas wprowadzone pozycje przez kasjera :");
+        Console.WriteLine($"Skasowane artykuły :");
         Console.ResetColor();
         if(File.Exists(cashierFileName))
         {

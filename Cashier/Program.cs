@@ -1,23 +1,22 @@
 ﻿using Cashier;
 Console.WriteLine();
-Console.WriteLine("*************");
-Console.WriteLine("*           *");
-Console.WriteLine("*  Obsługa  *");
-Console.WriteLine("*  K A S Y  *");
-Console.WriteLine("*           *");
-Console.WriteLine("*************");
-Console.WriteLine();
+Console.WriteLine("            Obsługa");
+Console.WriteLine("            K A S Y");
+Console.WriteLine(); 
+// Console.WriteLine("Kody zniżkowe: C(cukier), P(pieczywo), M(mleko), T(tłuszcz, masło), R(ryż), K(k. manna), W(mąka), J(jajka)");
+// Console.WriteLine(); 
 
 var trimmedNick = trimmNick();
 
 var cashierInFile = new CashierInFile(trimmedNick);
 Console.WriteLine("---");
+Console.WriteLine("Kody zniżkowe: C(cukier), P(pieczywo), M(mleko), T(tłuszcz, masło), R(ryż), K(k. manna), W(mąka), J(jajka)");
 
 AddItemsValuesToFile(cashierInFile);
 
 static string trimmNick()
 {
-    Console.Write("Wprowadź nick kasjera: ");
+    Console.Write("Wprowadź nick kasjerki/kasjera: ");
     string trimmedNick = "";
     var inputNick = Console.ReadLine();
     var nickLength = inputNick.Length;
@@ -43,20 +42,22 @@ static void AddItemsValuesToFile(CashierInFile cashierInFile)
     void CashierInFilePriceAdded(object sender, EventArgs args)
     {
         Console.ForegroundColor = ConsoleColor.Blue;
-        Console.WriteLine($"Wprowadzono nowy artykuł");
+        // Console.WriteLine("Artykuł skasowany.");
+        Console.WriteLine("To jest Pan Delegant z powiatu:");
+        Console.WriteLine("https://www.youtube.com/watch?v=V-QGKoCI1eM");
         Console.ResetColor();
     }
     
     while (true)
     {
-        Console.Write("Wprowadź kolejną pozycję: ");
+        Console.Write("Wprowadź kolejny artykuł: ");
         var input = Console.ReadLine();
 
         if (input == "q" || input == "Q")
         {
             if (!cashierInFile.HasPrice())
             {
-                Console.WriteLine("\nNie dodano żadnej pozycji!");
+                Console.WriteLine("\nNie dodano żadnego artykułu!");
             }
 
             break;
@@ -80,7 +81,7 @@ var globalStatistics = cashierInFile.GetStatistics();
 Console.WriteLine();
 Console.WriteLine("---");
 Console.ForegroundColor = ConsoleColor.DarkYellow;
-Console.WriteLine("Statystyki sklepu (wszystkich kasjerów):");
+Console.WriteLine("Statystyki sklepu:");
 Console.ResetColor();
 Console.Write($"Ilość artykułów:\t\t{globalStatistics.Count}\t\t\t");
 Console.WriteLine($"Suma artykułów:\t\t\t{globalStatistics.Sum:N2}");
@@ -104,7 +105,7 @@ Console.WriteLine();
 var cashierStatistics = cashierInFile.GetCashierStatistics();
 Console.WriteLine("---");
 Console.ForegroundColor = ConsoleColor.DarkYellow;
-Console.WriteLine($"Statystyki kasjera {trimmedNick}:");
+Console.WriteLine($"Statystyki kasjerki/kasjera << {trimmedNick} >>:");
 Console.ResetColor();
 Console.Write($"Ilość artykułów:\t\t{cashierStatistics.Count}\t\t\t");
 Console.WriteLine($"Suma artykułów:\t\t\t{cashierStatistics.Sum:N2}");
@@ -122,8 +123,8 @@ else
     Console.WriteLine($"Poziom sprzedaży kasjera:\t{cashierStatistics.CashierTradeLevelInLetters}");
 }
 
-Console.WriteLine();
-Console.WriteLine("--------------------------------------------------------------------------");
+// Console.WriteLine();
+// Console.WriteLine("--------------------------------------------------------------------------");
 /*
 Console.WriteLine("Podaj nick kasjera:");
 string input = Console.ReadLine();

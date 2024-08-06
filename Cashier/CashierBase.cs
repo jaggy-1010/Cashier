@@ -9,7 +9,6 @@ public abstract class CashierBase : ICashier
     public string CashierNick {get; private set;}
 
     public abstract Statistics GetStatistics();
-    // public abstract Statistics GetCashierStatistics(); 
     public abstract void AddPrice(double price);
     public abstract void AddPrice(string price);
     public abstract void AddPrice(char price);
