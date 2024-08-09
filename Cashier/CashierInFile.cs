@@ -1,5 +1,3 @@
-using System.Net.Http.Headers;
-
 namespace Cashier;
 
 public class CashierInFile  : CashierBase // : ICashier 
@@ -160,12 +158,12 @@ public class CashierInFile  : CashierBase // : ICashier
 
     public void ShowGlobalInputs()
     {
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("WYNIKI WSZYSTKICH KASJERÓW");
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+        Console.WriteLine("W S Z Y S C Y  K A S J E R Z Y:");
         Console.ResetColor();
         Console.WriteLine("---");
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine("Wszystkie dotychczas wprowadzone pozycje:");
+        Console.ForegroundColor = ConsoleColor.DarkYellow;
+        Console.WriteLine("Skasowane artykuły:");
         Console.ResetColor();
         if(File.Exists(Param.GLOBAL_CASH_VALUES))
         {
@@ -196,12 +194,12 @@ public class CashierInFile  : CashierBase // : ICashier
 
     public void ShowCashierInputs()
     {
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine($"WYNIKI KASJERA {CashierNick.ToUpper()}");
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+        Console.WriteLine($"K A S J E R K A / K A S J E R << {CashierNick} >>:");
         Console.ResetColor();
         Console.WriteLine("---");
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine($"Dotychczas wprowadzone pozycje przez kasjera :");
+        Console.ForegroundColor = ConsoleColor.DarkYellow;
+        Console.WriteLine($"Skasowane artykuły :");
         Console.ResetColor();
         if(File.Exists(cashierFileName))
         {
