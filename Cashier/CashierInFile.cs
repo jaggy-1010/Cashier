@@ -32,7 +32,7 @@ public class CashierInFile  : CashierBase // : ICashier
             }
             else
             {
-                throw new Exception("Wartość wprowadzana musi być większa od 0.00");
+                throw new Exception("Wartość wprowadzana musi być większa od 0,00");
             }
         }
     }
@@ -226,6 +226,11 @@ public class CashierInFile  : CashierBase // : ICashier
                 }
             }
         }
+    }
+    
+    public override void ViewEnteredCheckoutPrices()
+    {
+        throw new NotImplementedException();
     }
     
     public override bool HasPrice()
