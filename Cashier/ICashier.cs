@@ -1,4 +1,5 @@
 using static Cashier.CashierBase;
+
 namespace Cashier;
 
 public interface ICashier
@@ -6,6 +7,7 @@ public interface ICashier
     string CashierNick { get; }
 
     Statistics GetStatistics();
+
     // Statistics GetCashierStatistics();
     void AddPrice(double price);
     void AddPrice(string price);
@@ -13,5 +15,7 @@ public interface ICashier
     void AddPrice(int price);
     void AddPrice(float price);
     bool HasPrice();
+    void ViewEnteredCheckoutPrices();
     event PriceAddedDelegate PriceAdded;
+    
 }

@@ -2,6 +2,7 @@ namespace Cashier;
 
 public class CashierInMemory : CashierBase
 {
+
     public override event PriceAddedDelegate PriceAdded;
     private List<double> prices = new List<double>();
 
@@ -112,11 +113,11 @@ public class CashierInMemory : CashierBase
         return statistics;
     }
 
-    public Statistics GetCashierStatistics()
+    public override void ViewEnteredCheckoutPrices()
     {
         throw new NotImplementedException();
     }
-
+    
     public override bool HasPrice()
     {
         if (prices.Count != 0)
