@@ -7,7 +7,7 @@ public class CashierInFile  : CashierBase // : ICashier
     
     public CashierInFile(string cashierNick) : base(cashierNick)
     {
-        cashierFileName = ($"{cashierNick.ToLower()}_{Param.CASHIER_CASH_VALUES}");
+        cashierFileName = ($"{cashierNick}_{Param.CASHIER_CASH_VALUES}");
     }
    
 
@@ -39,7 +39,7 @@ public class CashierInFile  : CashierBase // : ICashier
 
     public override void AddPrice(string price)
     {
-        if (price != null)
+        if (price != null || price.Length != 0)
         {
             if (double.TryParse(price, out double result))
             {

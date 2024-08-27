@@ -40,7 +40,7 @@ public static class Param
     public const double SEMOLINA = 1.20; // Kaszka manna -> K, k
     public const double FLOUR = 1.30; // Wypieki(mąka) -> W, w
     public const double EGGS = 4.00; // Jajka -> J, j
-    
+
     // MESSAGES:
 
     public static void cashWelcome()
@@ -60,28 +60,38 @@ public static class Param
         Console.WriteLine("Koniec pracy i wyświetlenie wprowadzonych pozycji: Q(q).");
         Console.ResetColor();
     }
-    
+
     // TOOLS:
 
     public static string trimmNick()
     {
-        Console.Write("Wprowadź nick kasjerki/kasjera: ");
         string trimmedNick = "";
-        var inputNick = Console.ReadLine();
-        var nickLength = inputNick.Length;
-        if (nickLength != 0)
+        string inputNick = "";
+        while (inputNick.Length == 0)
         {
-            char[] charSeparator = new char[] { ' ' };
-            string[] results;
-            results = inputNick.Split(charSeparator, StringSplitOptions.TrimEntries);
-            int nickArrayLength = results.Length;
-
-            for (int i = 0; i < nickArrayLength; i++)
-            {
-                trimmedNick += results[i];
-            }
+            Console.Write("Wprowadź nick kasjerki/kasjera: ");
+            inputNick = Console.ReadLine();
         }
 
+        char[] charSeparator = new char[] { ' ' };
+        string[] results;
+        results = inputNick.Split(charSeparator, StringSplitOptions.TrimEntries);
+        int nickArrayLength = results.Length;
+
+        for (int i = 0; i < nickArrayLength; i++)
+        {
+            trimmedNick += results[i];
+        }
+
+        trimmedNick = trimmedNick.ToUpper();
+
         return trimmedNick;
+    }
+
+    public static void byeBye()
+    {
+        Console.WriteLine("Koniec pracy programu.");
+        Console.WriteLine("Naciśnij dowolny klawisz.");
+        Console.ReadKey();
     }
 }
