@@ -7,8 +7,6 @@ public interface ICashier
     string CashierNick { get; }
 
     Statistics GetStatistics();
-
-    // Statistics GetCashierStatistics();
     void AddPrice(double price);
     void AddPrice(string price);
     void AddPrice(char price);
@@ -16,6 +14,6 @@ public interface ICashier
     void AddPrice(float price);
     bool HasPrice();
     void ViewEnteredCheckoutPrices();
+    // delegate void PriceAddedDelegate();
     event PriceAddedDelegate PriceAdded;
-    
 }

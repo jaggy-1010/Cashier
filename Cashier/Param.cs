@@ -40,10 +40,10 @@ public static class Param
     public const double SEMOLINA = 1.20; // Kaszka manna -> K, k
     public const double FLOUR = 1.30; // Wypieki(mąka) -> W, w
     public const double EGGS = 4.00; // Jajka -> J, j
-    
+
     // MESSAGES:
 
-    public static void cashWelcome()
+    public static void CashWelcome()
     {
         Console.WriteLine();
         Console.WriteLine("            Obsługa");
@@ -51,37 +51,64 @@ public static class Param
         Console.WriteLine();
     }
 
-    public static void cashHeader()
+    public static void CashHeader()
     {
         Console.WriteLine("---");
-        Console.WriteLine(
-            "Kody zniżkowe: C(cukier), P(pieczywo), M(mleko), T(tłuszcz, masło), R(ryż), K(k. manna), W(mąka), J(jajka)");
+        Console.WriteLine("Kody zniżkowe: C(cukier), P(pieczywo), M(mleko), T(tłuszcz, masło), R(ryż), K(k. manna), W(mąka), J(jajka)");
         Console.ForegroundColor = ConsoleColor.Magenta;
         Console.WriteLine("Koniec pracy i wyświetlenie wprowadzonych pozycji: Q(q).");
         Console.ResetColor();
     }
+
+    public static void ByeBye()
+    {
+        Console.WriteLine("Koniec pracy.");
+        Console.WriteLine("Naciśnij dowolny klawisz.");
+        Console.ReadKey();
+    }
+
+    public static void AllCashiersHeader()
+    {
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+        Console.WriteLine("W S Z Y S C Y  K A S J E R Z Y:");
+        Console.ResetColor();
+        Console.WriteLine("---");
+    }
+
+    public static void CashierHeader(string trimmedNick)
+    {
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+        Console.WriteLine($"K A S J E R K A / K A S J E R << {trimmedNick} >>:");
+        Console.ResetColor();
+        Console.WriteLine("---");
+        
+    }
     
     // TOOLS:
 
-    public static string trimmNick()
+    public static string TrimmNick()
     {
-        Console.Write("Wprowadź nick kasjerki/kasjera: ");
         string trimmedNick = "";
-        var inputNick = Console.ReadLine();
-        var nickLength = inputNick.Length;
-        if (nickLength != 0)
+        string inputNick = "";
+        while (inputNick.Length == 0)
         {
-            char[] charSeparator = new char[] { ' ' };
-            string[] results;
-            results = inputNick.Split(charSeparator, StringSplitOptions.TrimEntries);
-            int nickArrayLength = results.Length;
-
-            for (int i = 0; i < nickArrayLength; i++)
-            {
-                trimmedNick += results[i];
-            }
+            Console.Write("Wprowadź nick kasjerki/kasjera: ");
+            inputNick = Console.ReadLine();
         }
+
+        char[] charSeparator = new char[] { ' ' };
+        string[] results;
+        results = inputNick.Split(charSeparator, StringSplitOptions.TrimEntries);
+        int nickArrayLength = results.Length;
+
+        for (int i = 0; i < nickArrayLength; i++)
+        {
+            trimmedNick += results[i];
+        }
+
+        trimmedNick = trimmedNick.ToUpper();
 
         return trimmedNick;
     }
+
 }

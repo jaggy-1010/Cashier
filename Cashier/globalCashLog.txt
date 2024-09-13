@@ -1,0 +1,14 @@
+30.08.2024 16:01:59	-	BOLEK	-	1,20	-	BOLEK_cashValues.txt	-	globalCashValues.txt
+30.08.2024 16:02:02	-	BOLEK	-	2,50	-	BOLEK_cashValues.txt	-	globalCashValues.txt
+30.08.2024 16:02:05	-	BOLEK	-	1,00	-	BOLEK_cashValues.txt	-	globalCashValues.txt
+30.08.2024 16:02:08	-	BOLEK	-	1,30	-	BOLEK_cashValues.txt	-	globalCashValues.txt
+30.08.2024 16:02:13	-	BOLEK	-	4,00	-	BOLEK_cashValues.txt	-	globalCashValues.txt
+30.08.2024 16:02:17	-	BOLEK	-	34,89	-	BOLEK_cashValues.txt	-	globalCashValues.txt
+30.08.2024 16:02:21	-	BOLEK	-	28,33	-	BOLEK_cashValues.txt	-	globalCashValues.txt
+30.08.2024 16:03:47	-	TOLA	-	1,20	-	TOLA_cashValues.txt	-	globalCashValues.txt
+30.08.2024 16:03:49	-	TOLA	-	1,50	-	TOLA_cashValues.txt	-	globalCashValues.txt
+30.08.2024 16:03:50	-	TOLA	-	2,50	-	TOLA_cashValues.txt	-	globalCashValues.txt
+30.08.2024 16:03:54	-	TOLA	-	1,30	-	TOLA_cashValues.txt	-	globalCashValues.txt
+30.08.2024 16:03:55	-	TOLA	-	4,00	-	TOLA_cashValues.txt	-	globalCashValues.txt
+30.08.2024 17:03:33	-	LOLEK	-	4,00	-	LOLEK_cashValues.txt	-	globalCashValues.txt
+30.08.2024 17:03:40	-	LOLEK	-	52,86	-	LOLEK_cashValues.txt	-	globalCashValues.txt

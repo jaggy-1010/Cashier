@@ -7,7 +7,7 @@ public class CashierInFile  : CashierBase // : ICashier
     
     public CashierInFile(string cashierNick) : base(cashierNick)
     {
-        cashierFileName = ($"{cashierNick.ToLower()}_{Param.CASHIER_CASH_VALUES}");
+        cashierFileName = ($"{cashierNick}_{Param.CASHIER_CASH_VALUES}");
     }
    
 
@@ -39,7 +39,7 @@ public class CashierInFile  : CashierBase // : ICashier
 
     public override void AddPrice(string price)
     {
-        if (price != null)
+        if (price != null || price.Length != 0)
         {
             if (double.TryParse(price, out double result))
             {
@@ -135,7 +135,7 @@ public class CashierInFile  : CashierBase // : ICashier
         return statistics;
     }
 
-    public Statistics GetCashierStatistics()
+    public override Statistics GetCashierStatistics()
     {
         var statistics = new Statistics();
         if (File.Exists($"{cashierFileName}"))
@@ -158,13 +158,8 @@ public class CashierInFile  : CashierBase // : ICashier
 
     public void ShowGlobalInputs()
     {
-        Console.ForegroundColor = ConsoleColor.DarkGreen;
-        Console.WriteLine("W S Z Y S C Y  K A S J E R Z Y:");
-        Console.ResetColor();
-        Console.WriteLine("---");
-        Console.ForegroundColor = ConsoleColor.DarkYellow;
-        Console.WriteLine("Skasowane artykuły:");
-        Console.ResetColor();
+        Param.AllCashiersHeader();
+        base.ViewEnteredCheckoutPrices();
         if(File.Exists(Param.GLOBAL_CASH_VALUES))
         {
             using(var reader = File.OpenText(Param.GLOBAL_CASH_VALUES))
@@ -192,15 +187,10 @@ public class CashierInFile  : CashierBase // : ICashier
         }
     }
 
-    public void ShowCashierInputs()
+    public override void ViewEnteredCheckoutPrices() 
     {
-        Console.ForegroundColor = ConsoleColor.DarkGreen;
-        Console.WriteLine($"K A S J E R K A / K A S J E R << {CashierNick} >>:");
-        Console.ResetColor();
-        Console.WriteLine("---");
-        Console.ForegroundColor = ConsoleColor.DarkYellow;
-        Console.WriteLine($"Skasowane artykuły :");
-        Console.ResetColor();
+        Param.CashierHeader(CashierNick);
+        base.ViewEnteredCheckoutPrices();
         if(File.Exists(cashierFileName))
         {
             using(var reader = File.OpenText(cashierFileName))
@@ -226,11 +216,6 @@ public class CashierInFile  : CashierBase // : ICashier
                 }
             }
         }
-    }
-    
-    public override void ViewEnteredCheckoutPrices()
-    {
-        throw new NotImplementedException();
     }
     
     public override bool HasPrice()

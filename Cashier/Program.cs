@@ -1,12 +1,14 @@
 ﻿using Cashier;
 
-Param.cashWelcome();
+Param.CashWelcome();
 
-var trimmedNick = Param.trimmNick();
+//C A S H I E R  I N  F I L E
+
+var trimmedNick = Param.TrimmNick();
 
 var cashierInFile = new CashierInFile(trimmedNick);
 
-Param.cashHeader();
+Param.CashHeader();
 
 AddItemsValuesToFile(cashierInFile);
 
@@ -74,34 +76,15 @@ else
 }
 Console.WriteLine();
 Console.WriteLine("---");
-cashierInFile.ShowCashierInputs();
-Console.WriteLine();
-var cashierStatistics = cashierInFile.GetCashierStatistics();
-Console.WriteLine("---");
-Console.ForegroundColor = ConsoleColor.DarkYellow;
-Console.WriteLine($"Statystyki kasjerki/kasjera << {trimmedNick} >>:");
-Console.ResetColor();
-Console.Write($"Ilość artykułów:\t\t{cashierStatistics.Count}\t\t\t");
-Console.WriteLine($"Suma artykułów:\t\t\t{cashierStatistics.Sum:N2}");
-Console.Write($"Najtańszy artykuł:\t\t{cashierStatistics.Min:N2}\t\t\t");
-Console.WriteLine($"Najdroższy artykuł:\t\t{cashierStatistics.Max:N2}");
-Console.Write($"Średnia wartość artykułu:\t{cashierStatistics.Average:N2}\t\t\t");
-if (cashierStatistics.CashierTradeLevelInLetters == 'F')
-{
-    Console.ForegroundColor = ConsoleColor.Red;
-    Console.WriteLine($"Poziom sprzedaży kasjera:\t{cashierStatistics.CashierTradeLevelInLetters}");
-    Console.ResetColor();
-}
-else
-{
-    Console.WriteLine($"Poziom sprzedaży kasjera:\t{cashierStatistics.CashierTradeLevelInLetters}");
-}
+cashierInFile.ViewStatistics(trimmedNick);
+
+// C A S H I E R  I N  M E M O R Y
 
 Console.WriteLine();
 Console.WriteLine("---");
-trimmedNick = Param.trimmNick();
+trimmedNick = Param.TrimmNick();
 var cashierInMemory = new CashierInMemory(trimmedNick);
-Param.cashHeader();
+Param.CashHeader();
 
 AddItemsValuesToMemory(cashierInMemory);
 
@@ -145,24 +128,5 @@ static void AddItemsValuesToMemory(CashierInMemory cashierInMemory)
 
 Console.WriteLine();
 Console.WriteLine("---");
-Console.WriteLine();
-var statistics = cashierInMemory.GetStatistics();
-Console.WriteLine("---");
-Console.ForegroundColor = ConsoleColor.DarkYellow;
-Console.WriteLine($"Statystyki kasjerki/kasjera << {trimmedNick} >>:");
-Console.ResetColor();
-Console.Write($"Ilość artykułów:\t\t{statistics.Count}\t\t\t");
-Console.WriteLine($"Suma artykułów:\t\t\t{statistics.Sum:N2}");
-Console.Write($"Najtańszy artykuł:\t\t{statistics.Min:N2}\t\t\t");
-Console.WriteLine($"Najdroższy artykuł:\t\t{statistics.Max:N2}");
-Console.Write($"Średnia wartość artykułu:\t{statistics.Average:N2}\t\t\t");
-if (statistics.CashierTradeLevelInLetters == 'F')
-{
-    Console.ForegroundColor = ConsoleColor.Red;
-    Console.WriteLine($"Poziom sprzedaży kasjera:\t{statistics.CashierTradeLevelInLetters}");
-    Console.ResetColor();
-}
-else
-{
-    Console.WriteLine($"Poziom sprzedaży kasjera:\t{statistics.CashierTradeLevelInLetters}");
-}
+cashierInMemory.ViewStatistics(trimmedNick);
+Param.ByeBye();
