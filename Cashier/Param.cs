@@ -62,7 +62,7 @@ public static class Param
 
     public static void ByeBye()
     {
-        Console.WriteLine("Koniec pracy.");
+        Console.WriteLine("Koniec pracy!");
         Console.WriteLine("Naciśnij dowolny klawisz.");
         Console.ReadKey();
     }
