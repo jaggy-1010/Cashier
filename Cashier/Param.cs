@@ -43,7 +43,7 @@ public static class Param
 
     // MESSAGES:
 
-    public static void cashWelcome()
+    public static void CashWelcome()
     {
         Console.WriteLine();
         Console.WriteLine("            Obsługa");
@@ -51,19 +51,42 @@ public static class Param
         Console.WriteLine();
     }
 
-    public static void cashHeader()
+    public static void CashHeader()
     {
         Console.WriteLine("---");
-        Console.WriteLine(
-            "Kody zniżkowe: C(cukier), P(pieczywo), M(mleko), T(tłuszcz, masło), R(ryż), K(k. manna), W(mąka), J(jajka)");
+        Console.WriteLine("Kody zniżkowe: C(cukier), P(pieczywo), M(mleko), T(tłuszcz, masło), R(ryż), K(k. manna), W(mąka), J(jajka)");
         Console.ForegroundColor = ConsoleColor.Magenta;
         Console.WriteLine("Koniec pracy i wyświetlenie wprowadzonych pozycji: Q(q).");
         Console.ResetColor();
     }
 
+    public static void ByeBye()
+    {
+        Console.WriteLine("Koniec pracy.");
+        Console.WriteLine("Naciśnij dowolny klawisz.");
+        Console.ReadKey();
+    }
+
+    public static void AllCashiersHeader()
+    {
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+        Console.WriteLine("W S Z Y S C Y  K A S J E R Z Y:");
+        Console.ResetColor();
+        Console.WriteLine("---");
+    }
+
+    public static void CashierHeader(string trimmedNick)
+    {
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+        Console.WriteLine($"K A S J E R K A / K A S J E R << {trimmedNick} >>:");
+        Console.ResetColor();
+        Console.WriteLine("---");
+        
+    }
+    
     // TOOLS:
 
-    public static string trimmNick()
+    public static string TrimmNick()
     {
         string trimmedNick = "";
         string inputNick = "";
@@ -88,10 +111,4 @@ public static class Param
         return trimmedNick;
     }
 
-    public static void byeBye()
-    {
-        Console.WriteLine("Koniec pracy programu.");
-        Console.WriteLine("Naciśnij dowolny klawisz.");
-        Console.ReadKey();
-    }
 }

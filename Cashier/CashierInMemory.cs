@@ -10,6 +10,11 @@ public class CashierInMemory : CashierBase
     {
     }
 
+    public override Statistics GetStatistics()
+    {
+        throw new NotImplementedException();
+    }
+
     public override void AddPrice(double price)
     {
         if (price > 0)
@@ -102,7 +107,7 @@ public class CashierInMemory : CashierBase
         }
     }
 
-    public override Statistics GetStatistics()
+    public override Statistics GetCashierStatistics()
     {
         var statistics = new Statistics();
 
@@ -115,7 +120,14 @@ public class CashierInMemory : CashierBase
 
     public override void ViewEnteredCheckoutPrices()
     {
-        throw new NotImplementedException();
+        Param.CashierHeader(CashierNick);
+        base.ViewEnteredCheckoutPrices();
+        foreach (var price in prices)
+        {
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.Write($"{price:N2}" + ";");
+            Console.ResetColor();
+        }
     }
     
     public override bool HasPrice()
