@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cashier", "Cashier.csproj", "{EE2AF9BD-5E11-4D9D-B46B-86C2DF824309}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cashier.Test", "Cashier.Test\Cashier.Test.csproj", "{078A0B62-C55D-494C-B334-FBC9DB861365}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{EE2AF9BD-5E11-4D9D-B46B-86C2DF824309}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE2AF9BD-5E11-4D9D-B46B-86C2DF824309}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE2AF9BD-5E11-4D9D-B46B-86C2DF824309}.Release|Any CPU.Build.0 = Release|Any CPU
+		{078A0B62-C55D-494C-B334-FBC9DB861365}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{078A0B62-C55D-494C-B334-FBC9DB861365}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{078A0B62-C55D-494C-B334-FBC9DB861365}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{078A0B62-C55D-494C-B334-FBC9DB861365}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

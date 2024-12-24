@@ -129,4 +129,6 @@ static void AddItemsValuesToMemory(CashierInMemory cashierInMemory)
 Console.WriteLine();
 Console.WriteLine("---");
 cashierInMemory.ViewStatistics(trimmedNick);
+Console.WriteLine();
+Console.WriteLine("---");
 Param.ByeBye();
