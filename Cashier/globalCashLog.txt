@@ -1,0 +1,4 @@
+30.06.2025 12:35:19	-	ALA	-	1,20	-	ALA_cashValues.txt	-	globalCashValues.txt
+30.06.2025 12:35:22	-	ALA	-	7,00	-	ALA_cashValues.txt	-	globalCashValues.txt
+30.06.2025 12:35:37	-	ALA	-	67,78	-	ALA_cashValues.txt	-	globalCashValues.txt
+30.06.2025 12:35:44	-	ALA	-	999,23	-	ALA_cashValues.txt	-	globalCashValues.txt
